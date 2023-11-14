@@ -1,7 +1,12 @@
 import React, { memo } from 'react'
+import type { FC, ReactNode } from 'react'
 
-const Discover = memo(() => {
+interface IProps {
+  children?: ReactNode
+}
+
+const Discover: FC<IProps> = () => {
   return <div>Discover</div>
-})
-Discover.displayName = 'Discover'
-export default Discover
+}
+
+export default memo(Discover)
