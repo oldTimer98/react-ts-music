@@ -6,7 +6,7 @@
 
 `npm i @craco/craco@alpha -D `
 
--   配置别名@需要在craco.config.js和tsconfig.json两个文件中配置
+- 配置别名@需要在craco.config.js和tsconfig.json两个文件中配置
 
 ```json
     "jsx": "react-jsx",
@@ -45,7 +45,7 @@ module.exports = {
 
 ## 项目规范
 
--   `npm i prettier -D`
+- `npm i prettier -D`
 
 .prettierrc文件中
 
@@ -90,9 +90,9 @@ package.json中
 
 配置好prettier之后，执行命令 `npm run prettier` 就可以格式化所有代码，不需要ctrl + s 保存进行格式化了
 
--   eslint配置
--   安装 `npm i eslint -D `
--   `npx eslint --init`
+- eslint配置
+- 安装 `npm i eslint -D `
+- `npx eslint --init`
 
 > prettier和eslint保持一致
 >
@@ -118,11 +118,11 @@ package.json中
 
 ## 样式重置
 
--   `npm i normalize.css`
+- `npm i normalize.css`
 
 ## less配置
 
--   `npm i craco-less@2.1.0-alpha.0`
+- `npm i craco-less@2.1.0-alpha.0`
 
 craco.config.js中
 
@@ -145,7 +145,7 @@ module.exports = {
 
 ## 配置路由
 
--   `npm i react-router-dom`
+- `npm i react-router-dom`
 
 配置单独路由文件：
 
@@ -189,7 +189,7 @@ export default App
 
 ## props类型约束
 
--   直接对props进行类型约束
+- 直接对props进行类型约束
 
 ```
 interface IProps {
@@ -223,7 +223,7 @@ export default Discover
 
 ```
 
--   React.FC, children,ReactNode
+- React.FC, children,ReactNode
 
 ```
 import Download from '../download'
@@ -447,12 +447,12 @@ export default memo(Discover)
 
 ## redux集成
 
--   `npm i @reduxjs/toolkit react-redux`
+- `npm i @reduxjs/toolkit react-redux`
 
 ## state类型配置
 
--   官网 `https://react-redux.js.org/using-react-redux/usage-with-typescript`
--   创建store,定义state类型，useSelector, useDispatch的ts类型
+- 官网 `https://react-redux.js.org/using-react-redux/usage-with-typescript`
+- 创建store,定义state类型，useSelector, useDispatch的ts类型
 
 ```js
 import { configureStore } from '@reduxjs/toolkit'
@@ -476,7 +476,7 @@ export default store
 
 ```
 
--   在index.tsx中给App提供store
+- 在index.tsx中给App提供store
 
 ```js
 import ReactDOM from 'react-dom/client'
@@ -499,29 +499,29 @@ root.render(
 
 ```
 
--   创建对应模块
+- 创建对应模块
 
 ```js
 import { createSlice } from '@reduxjs/toolkit'
 
 const countSlice = createSlice({
-    name: 'counter',
-    initialState: {
-        count: 999,
-        msg: 'zm'
-    },
-    reducers: {
-        changeMsgAction(state, { payload }) {
-            state.msg = payload
-        }
+  name: 'counter',
+  initialState: {
+    count: 999,
+    msg: 'zm'
+  },
+  reducers: {
+    changeMsgAction(state, { payload }) {
+      state.msg = payload
     }
+  }
 })
 
 export const { changeMsgAction } = countSlice.actions
 export default countSlice.reducer
 ```
 
--   在组件中使用state,就有了很好的类型提示
+- 在组件中使用state,就有了很好的类型提示
 
 ```js
 import React, { Suspense } from 'react'
@@ -531,35 +531,35 @@ import { changeMsgAction } from './store/modules/counter'
 import { useAppSelector, useAppDispatch, shallowEqualApp } from './store'
 
 function App() {
-    const { count, msg } = useAppSelector(
-        (state) => ({
-            count: state.counter.count,
-            msg: state.counter.msg
-        }),
-        shallowEqualApp
-    )
-    const dispatch = useAppDispatch()
-    function handleChangeMsg() {
-        dispatch(changeMsgAction('1899'))
-    }
-    return (
-        <div className="App">
-            <div>
-                count:{count}-msg:{msg}
-                <button onClick={handleChangeMsg}>changeMsg</button>
-            </div>
-            <div className="nav">
-                <Link to="/discover">发现音乐</Link>
-                <Link to="/mine">我的音乐</Link>
-                <Link to="/focus">关注</Link>
-                <Link to="/download">下载客户端</Link>
-            </div>
-            <Suspense fallback="loading...">
-                {/* <Suspense fallback={组件}> */}
-                <div className="main">{useRoutes(routes)}</div>
-            </Suspense>
-        </div>
-    )
+  const { count, msg } = useAppSelector(
+    (state) => ({
+      count: state.counter.count,
+      msg: state.counter.msg
+    }),
+    shallowEqualApp
+  )
+  const dispatch = useAppDispatch()
+  function handleChangeMsg() {
+    dispatch(changeMsgAction('1899'))
+  }
+  return (
+    <div className="App">
+      <div>
+        count:{count}-msg:{msg}
+        <button onClick={handleChangeMsg}>changeMsg</button>
+      </div>
+      <div className="nav">
+        <Link to="/discover">发现音乐</Link>
+        <Link to="/mine">我的音乐</Link>
+        <Link to="/focus">关注</Link>
+        <Link to="/download">下载客户端</Link>
+      </div>
+      <Suspense fallback="loading...">
+        {/* <Suspense fallback={组件}> */}
+        <div className="main">{useRoutes(routes)}</div>
+      </Suspense>
+    </div>
+  )
 }
 
 export default App
@@ -567,14 +567,14 @@ export default App
 
 ## 封装网络请求-axios,useState()定义数据类型
 
--   安装依赖 `npm i axios`
--   封装网络请求
--   useState()定义数据类型
+- 安装依赖 `npm i axios`
+- 封装网络请求
+- useState()定义数据类型
 
-    -   工具 json to typescript，地址 `https://transform.tools/json-to-typescript`
-    -   工具2：`https://tooltt.com/json2typescript/`
+  - 工具 json to typescript，地址 `https://transform.tools/json-to-typescript`
+  - 工具2：`https://tooltt.com/json2typescript/`
 
--   测试网络请求接口
+- 测试网络请求接口
 
 ```js
 import zmRequest from '@/service'
@@ -646,15 +646,15 @@ export const TIME_OUT = 10000
 // console.log(process.env.REACT_APP_BASE_URL)
 ```
 
--   .env.development配置文件
-    `REACT_APP_BASE_URL=http://codercba.dev.9002`
--   .env.production配置文件
+- .env.development配置文件
+  `REACT_APP_BASE_URL=http://codercba.dev.9002`
+- .env.production配置文件
 
-    `REACT_APP_BASE_URL=http://codercba.prod:9002`
+  `REACT_APP_BASE_URL=http://codercba.prod:9002`
 
 ## ts类型知识补充
 
--   类组件与ts
+- 类组件与ts
 
 ```js
 import { PureComponent, ReactNode } from 'react'
@@ -688,24 +688,24 @@ export class Demo02 extends PureComponent<IProps, IState> {
 
 ## CSS的编写方案-styled-components
 
--   安装依赖 `npm i styled-components -D`
--   同时安装类型声明 `npm i @types/styled-components -D`
+- 安装依赖 `npm i styled-components -D`
+- 同时安装类型声明 `npm i @types/styled-components -D`
 
 ## styled-components混入，theme
 
 ```js
 const theme = {
-    color: {
-        primary: '#c20c0c',
-        secondary: ''
-    },
-    size: {},
-    mixin: {
-        wrapv1: `
+  color: {
+    primary: '#c20c0c',
+    secondary: ''
+  },
+  size: {},
+  mixin: {
+    wrapv1: `
             width:1100px;
             margin:0 auto;
         `
-    }
+  }
 }
 
 export default theme
@@ -714,27 +714,27 @@ export default theme
 ```js
 import { ThemeProvider } from 'styled-components'
 root.render(
-    <ThemeProvider theme={theme}>
-        <HashRouter>
-            <Provider store={store}>
-                <App />
-            </Provider>
-        </HashRouter>
-    </ThemeProvider>
+  <ThemeProvider theme={theme}>
+    <HashRouter>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </HashRouter>
+  </ThemeProvider>
 )
 ```
 
--   组件样式中使用
+- 组件样式中使用
 
 ```js
 import styled from 'styled-components'
 
 export const HeaderWrapper = styled.div`
-    .content {
-        height: 100px;
+  .content {
+    height: 100px;
 
-        ${(props) => props.theme.mixin.wrapv1}
-    }
+    ${(props) => props.theme.mixin.wrapv1}
+  }
 `
 ```
 
@@ -761,9 +761,9 @@ export const HeaderWrapper = styled.div`
 
 ## app-header样式编写和antd集成
 
--   `npm i antd`
--   最新的antd（"antd":"^5.7.3"），安装好后，直接在组件中使用即可
--   icon图标需单独安装 `npm i --save @ant-design/icons`
+- `npm i antd`
+- 最新的antd（"antd":"^5.7.3"），安装好后，直接在组件中使用即可
+- icon图标需单独安装 `npm i --save @ant-design/icons`
 
 ## 发现音乐页面nav-bar样式，代码结构调整
 
@@ -837,7 +837,7 @@ export default memo(TopBanner)
 
 ## 动态样式
 
--   `npm i classnames`
+- `npm i classnames`
 
 ```
                         <div className="carousel-indicators">
@@ -860,24 +860,24 @@ export default memo(TopBanner)
 
 ```js
 <div className="banner">
-    <Carousel ref={bannerRef} autoplay dots={false} speed={1500}>
-        {/* 双重遍历， albums.slice(item * 5, (item + 1) * 5) 每页展示5条  */}
-        {[0, 1].map((item) => {
-            return (
-                <div className="album-list" key={item}>
-                    {albums.slice(item * 5, (item + 1) * 5).map((album) => {
-                        return <div key={album.id}>{album.name}</div>
-                    })}
-                </div>
-            )
-        })}
-    </Carousel>
+  <Carousel ref={bannerRef} autoplay dots={false} speed={1500}>
+    {/* 双重遍历， albums.slice(item * 5, (item + 1) * 5) 每页展示5条  */}
+    {[0, 1].map((item) => {
+      return (
+        <div className="album-list" key={item}>
+          {albums.slice(item * 5, (item + 1) * 5).map((album) => {
+            return <div key={album.id}>{album.name}</div>
+          })}
+        </div>
+      )
+    })}
+  </Carousel>
 </div>
 ```
 
 ## 榜单
 
--   引入图片方式
+- 引入图片方式
 
 ```css
 import styled from 'styled-components'
@@ -940,4 +940,4 @@ export const fetchPlaylistDetailAction = createAsyncThunk('rankdata', (arg, { di
 
 ## 音乐播放
 
--   views -> player
+- views -> player

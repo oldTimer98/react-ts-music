@@ -1,0 +1,43 @@
+body,
+html,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+header,
+menu,
+section,
+p,
+input,
+td,
+th,
+ins {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+img {
+  vertical-align: middle;
+}
+
+button {
+  border: none;
+}
+
+ul,
+li {
+  list-style: none;
+}

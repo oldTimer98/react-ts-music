@@ -1,55 +1,61 @@
 {
-    "name": "react-ts-music",
-    "version": "0.1.0",
-    "private": true,
-    "dependencies": {
-        "@testing-library/jest-dom": "^5.17.0",
-        "@testing-library/react": "^13.4.0",
-        "@testing-library/user-event": "^13.5.0",
-        "@types/jest": "^27.5.2",
-        "@types/node": "^16.18.61",
-        "@types/react": "^18.2.37",
-        "@types/react-dom": "^18.2.15",
-        "normalize.css": "^8.0.1",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
-        "react-scripts": "5.0.1",
-        "typescript": "^4.9.5",
-        "web-vitals": "^2.1.4"
-    },
-    "scripts": {
-        "start": "craco  start",
-        "build": "craco  build",
-        "test": "craco test",
-        "eject": "react-scripts eject",
-        "prettier": "prettier --write ."
-    },
-    "eslintConfig": {
-        "extends": [
-            "react-app",
-            "react-app/jest"
-        ]
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
-    },
-    "devDependencies": {
-        "@craco/craco": "^7.1.0",
-        "@typescript-eslint/eslint-plugin": "^6.11.0",
-        "@typescript-eslint/parser": "^6.11.0",
-        "eslint": "^8.53.0",
-        "eslint-config-prettier": "^9.0.0",
-        "eslint-plugin-prettier": "^5.0.1",
-        "eslint-plugin-react": "^7.33.2",
-        "prettier": "^3.1.0"
-    }
+  "name": "react-ts-music",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.61",
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "normalize.css": "^8.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-loadable": "^5.5.0",
+    "react-router-dom": "^6.18.0",
+    "react-scripts": "5.0.1",
+    "sass": "^1.69.5",
+    "typescript": "^4.9.5",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "craco  start",
+    "build": "craco  build",
+    "test": "craco test",
+    "eject": "react-scripts eject",
+    "prettier": "prettier --write ."
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@craco/craco": "^7.1.0",
+    "@types/react-loadable": "^5.5.11",
+    "@typescript-eslint/eslint-plugin": "^6.11.0",
+    "@typescript-eslint/parser": "^6.11.0",
+    "eslint": "^8.53.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-react": "^7.33.2",
+    "lib-flexible": "^0.3.2",
+    "postcss-pxtorem": "^6.0.0",
+    "prettier": "^3.1.0"
+  }
 }
