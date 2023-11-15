@@ -3,16 +3,17 @@ import { useRoutes } from 'react-router-dom'
 import { Suspense } from 'react'
 import AppHeader from '@/components/app-header'
 import { ViewWrapper } from '@/style'
+import AppFooter from '@/components/app-footer'
 function App() {
   return (
     <ViewWrapper>
-      <div className="App">
-        <AppHeader />
-        <Suspense fallback="">
-          {/* <Suspense fallback={组件}> */}
-          {useRoutes(routes)}
-        </Suspense>
-      </div>
+      <AppHeader />
+      <Suspense fallback="">
+        {/* <Suspense fallback={组件}> */}
+        {useRoutes(routes)}
+      </Suspense>
+
+      <AppFooter />
     </ViewWrapper>
   )
 }
