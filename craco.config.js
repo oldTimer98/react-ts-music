@@ -8,24 +8,10 @@ module.exports = {
       '@': path.resolve(__dirname, 'src')
       // ....其他的一些配置
     }
+  },
+  style: {
+    postcssOptions: {
+      plugins: [require('tailwindcss'), require('autoprefixer')]
+    }
   }
-  // style: {
-  //   postcss: {
-  //     mode: 'extends',
-  //     loaderOptions: {
-  //       postcssOptions: {
-  //         ident: 'postcss',
-  //         plugins: [
-  //           [
-  //             'postcss-pxtorem',
-  //             {
-  //               rootValue: 750 / 10, // 根元素字体大小
-  //               propList: ['*']
-  //             }
-  //           ]
-  //         ]
-  //       }
-  //     }
-  //   }
-  // }
 }
