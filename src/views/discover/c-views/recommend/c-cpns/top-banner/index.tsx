@@ -33,7 +33,8 @@ const TopBanner: FC<IProps> = () => {
   }, [])
 
   // 获取背景
-  const bgImage = banners[currentIndex] && banners[currentIndex].imageUrl + '?imageView&blur=40x20'
+  const bgImage =
+    banners[currentIndex] && banners[currentIndex].imageUrl + '?imageView&blur=40x20&quot'
 
   // 处理点击dot事件
   const handleDotClick = (index: number) => {
