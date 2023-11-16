@@ -85,8 +85,7 @@ export const HeaderRight = styled.div`
       text-decoration: underline;
     }
   }
-  :where(.css-dev-only-do-not-override-1adbn6x).ant-input-affix-wrapper-borderless,
-  :where(.css-dev-only-do-not-override-1adbn6x).ant-input-affix-wrapper-borderless:hover {
+  .ant-input-affix-wrapper:hover {
     background-color: #fff !important;
   }
 `
