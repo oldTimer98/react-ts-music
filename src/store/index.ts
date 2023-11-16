@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
 import countReducer from './modules/counter'
+import commendReducer from './modules/recommend'
 const store = configureStore({
   reducer: {
-    counter: countReducer
+    counter: countReducer,
+    commend: commendReducer
   }
 })
 

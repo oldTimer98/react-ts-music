@@ -13,5 +13,17 @@ module.exports = {
     postcssOptions: {
       plugins: [require('tailwindcss'), require('autoprefixer')]
     }
+  },
+  //配置代理解决跨域
+  devServer: {
+    proxy: {
+      '/api': {
+        target: 'http://codercba.com:9002',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    }
   }
 }

@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
 export const DiscoverWrapper = styled.div`
-  height: 35px;
+  height: 40px;
   box-sizing: border-box;
+  background-color: #c20c0c;
 `
 
 export const TopMenuWrapper = styled.div`
-  background-color: #c20c0c;
   display: flex;
   padding-left: 180px;
   position: relative;
