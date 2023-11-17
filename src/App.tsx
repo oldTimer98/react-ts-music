@@ -12,7 +12,6 @@ function App() {
         {/* <Suspense fallback={组件}> */}
         {useRoutes(routes)}
       </Suspense>
-
       <AppFooter />
     </ViewWrapper>
   )

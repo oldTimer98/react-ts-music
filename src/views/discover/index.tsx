@@ -11,20 +11,22 @@ interface IProps {
 const Discover: FC<IProps> = () => {
   return (
     <DiscoverWrapper>
-      <TopMenuWrapper className="wrap-v1">
-        {discoverMenus.map((item) => {
-          return (
-            <div className="item" key={item.title}>
-              <NavLink
-                to={item.link}
-                className={({ isActive }) => (isActive ? 'active' : undefined)}
-              >
-                {item.title}
-              </NavLink>
-            </div>
-          )
-        })}
-      </TopMenuWrapper>
+      <div className="header">
+        <TopMenuWrapper className="wrap-v1">
+          {discoverMenus.map((item) => {
+            return (
+              <div className="item" key={item.title}>
+                <NavLink
+                  to={item.link}
+                  className={({ isActive }) => (isActive ? 'active' : undefined)}
+                >
+                  {item.title}
+                </NavLink>
+              </div>
+            )
+          })}
+        </TopMenuWrapper>
+      </div>
       <Suspense fallback="">
         <Outlet />
       </Suspense>
