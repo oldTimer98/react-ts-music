@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const DiscoverWrapper = styled.div`
   box-sizing: border-box;
-  .header {
+  .discover-header {
     background-color: #c20c0c;
   }
 `

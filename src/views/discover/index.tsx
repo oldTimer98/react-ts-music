@@ -11,7 +11,7 @@ interface IProps {
 const Discover: FC<IProps> = () => {
   return (
     <DiscoverWrapper>
-      <div className="header">
+      <div className="discover-header">
         <TopMenuWrapper className="wrap-v1">
           {discoverMenus.map((item) => {
             return (
