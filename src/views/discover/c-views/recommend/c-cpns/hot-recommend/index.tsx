@@ -1,6 +1,6 @@
 import RecommendCover from '@/components/recommend-cover'
 import RecommendHeader from '@/components/recommend-header'
-import { useAppSelector } from '@/hooks'
+import { useAppSelector, useAppShallowEqual } from '@/hooks'
 import { HotRecommendWrapper } from '@/views/discover/c-views/recommend/c-cpns/hot-recommend/style'
 import React, { memo, useCallback } from 'react'
 import type { FC, ReactNode } from 'react'
@@ -10,9 +10,12 @@ interface IProps {
 }
 
 const HotRecommend: FC<IProps> = () => {
-  const { hotRecommend } = useAppSelector((state) => ({
-    hotRecommend: state.commend.hotRecommend
-  }))
+  const { hotRecommend } = useAppSelector(
+    (state) => ({
+      hotRecommend: state.commend.hotRecommend
+    }),
+    useAppShallowEqual
+  )
   const navigate = useNavigate()
   const keywordClick = useCallback(
     (item: string) => {

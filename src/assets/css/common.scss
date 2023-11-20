@@ -17,6 +17,11 @@ body {
 }
 
 .wrap-v2 {
+  width: 982px;
+  margin: 0 auto;
+}
+
+.wrap-v3 {
   width: 980px;
   margin: 0 auto;
 }
@@ -63,6 +68,14 @@ body {
 
 .sprite_playlist {
   background: url('../img/playlist_sprite.png') no-repeat 0 9999px;
+}
+
+.player-bar {
+  background: url('../img/playbar.png') no-repeat 0 9999px;
+}
+
+.player-bar-icn {
+  background: url('../img/icn') no-repeat 0 0;
 }
 
 .image_cover {

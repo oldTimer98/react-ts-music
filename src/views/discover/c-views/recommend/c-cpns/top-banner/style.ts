@@ -53,7 +53,7 @@ export const BannerRight = styled.a.attrs({
 export const BannerControl = styled.div`
   .arrow {
     color: white;
-    z-index: 999;
+    z-index: 9;
     width: 37px;
     height: 63px;
     display: flex;

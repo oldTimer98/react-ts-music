@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import countReducer from './modules/counter'
 import commendReducer from './modules/recommend'
+import playerReducer from './modules/player'
 const store = configureStore({
   reducer: {
     counter: countReducer,
-    commend: commendReducer
+    commend: commendReducer,
+    player: playerReducer
   }
 })
 

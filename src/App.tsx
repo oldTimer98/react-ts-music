@@ -5,6 +5,7 @@ import AppHeader from '@/components/app-header'
 import { ViewWrapper } from '@/style'
 import AppFooter from '@/components/app-footer'
 import { FloatButton } from 'antd'
+import AppPlayBar from '@/views/player/app-play-bar'
 function App() {
   return (
     <ViewWrapper>
@@ -14,6 +15,7 @@ function App() {
         {useRoutes(routes)}
       </Suspense>
       <AppFooter />
+      <AppPlayBar />
       <FloatButton.BackTop shape="square" />
     </ViewWrapper>
   )

@@ -1,5 +1,5 @@
 import RecommendHeader from '@/components/recommend-header'
-import { useAppSelector } from '@/hooks'
+import { useAppSelector, useAppShallowEqual } from '@/hooks'
 import { getSizeImage } from '@/utils'
 import { SettleSingerWrapper } from '@/views/discover/c-views/recommend/c-cpns/settle-singer/style'
 import React, { memo } from 'react'
@@ -10,9 +10,12 @@ interface IProps {
 }
 
 const SettleSinger: FC<IProps> = () => {
-  const { settleSingers } = useAppSelector((state) => ({
-    settleSingers: state.commend.settleSingers
-  }))
+  const { settleSingers } = useAppSelector(
+    (state) => ({
+      settleSingers: state.commend.settleSingers
+    }),
+    useAppShallowEqual
+  )
   return (
     <SettleSingerWrapper>
       <RecommendHeader title="入驻歌手" moreText="查看全部" />

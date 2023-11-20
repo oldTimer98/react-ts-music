@@ -19,7 +19,7 @@ interface IProps {
 const AlbumCover: FC<IProps> = (props) => {
   const { info, size = '100px', width = '118px', bgp = '-570px' } = props
   return (
-    <AlbumCoverWrapper size={size} width={width} bgp={bgp}>
+    <AlbumCoverWrapper options={{ size, width, bgp }}>
       <div className="album-image">
         <img src={getSizeImage(info.picUrl, 150)} alt="" />
         <a href="/abc" className="cover sprite_covor">

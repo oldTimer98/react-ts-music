@@ -1,4 +1,4 @@
-import { useAppSelector } from '@/hooks'
+import { useAppSelector, useAppShallowEqual } from '@/hooks'
 import {
   BannerLeft,
   TopBannerWrapper,
@@ -20,13 +20,15 @@ const TopBanner: FC<IProps> = () => {
   const bannerRef = useRef<ElementRef<typeof Carousel>>(null)
   const [currentIndex, setCurrentIndex] = useState<number>(0)
 
-  const { banners } = useAppSelector((state) => ({
-    banners: state.commend.banners
-  }))
+  const { banners } = useAppSelector(
+    (state) => ({
+      banners: state.commend.banners
+    }),
+    useAppShallowEqual
+  )
 
   // 获取当前index
   const handleChange = useCallback((current: number, next: number) => {
-    console.log(current)
     setTimeout(() => {
       setCurrentIndex(next)
     }, 0)

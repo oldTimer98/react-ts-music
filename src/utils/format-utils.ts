@@ -12,3 +12,8 @@ export function getCount(count: number) {
     return Math.floor(count / 10000000) / 10 + '亿'
   }
 }
+
+// 获取当前音乐
+export function getPlayUrl(id: number) {
+  return `https://music.163.com/song/media/outer/url/v1?id=${id}&level=exhigh.mp3`
+}

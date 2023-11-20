@@ -1,6 +1,6 @@
 import AlbumCover from '@/components/album-cover'
 import RecommendHeader from '@/components/recommend-header'
-import { useAppSelector } from '@/hooks'
+import { useAppSelector, useAppShallowEqual } from '@/hooks'
 import { NewAlbumWrapper } from '@/views/discover/c-views/recommend/c-cpns/NewAlbum/style'
 import { Carousel } from 'antd'
 import React, { memo, useRef } from 'react'
@@ -11,9 +11,12 @@ interface IProps {
 }
 
 const NewAlbum: FC<IProps> = () => {
-  const { newAlbums } = useAppSelector((state) => ({
-    newAlbums: state.commend.newAlbums
-  }))
+  const { newAlbums } = useAppSelector(
+    (state) => ({
+      newAlbums: state.commend.newAlbums
+    }),
+    useAppShallowEqual
+  )
   const carouselRef = useRef<ElementRef<typeof Carousel>>(null)
   return (
     <NewAlbumWrapper>
