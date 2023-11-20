@@ -29,7 +29,7 @@ const RecommendCover: FC<IProps> = (props) => {
           </div>
         </div>
       </div>
-      <div className="cover-bottom text-nowrap">{info?.name}</div>
+      <div className="cover-bottom text-nowrap hover-decoration">{info?.name}</div>
     </RecommendCoverWrapper>
   )
 }

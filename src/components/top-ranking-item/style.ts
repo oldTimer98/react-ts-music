@@ -99,7 +99,7 @@ export const TopRankingWrapper = styled.div`
     height: 32px;
     display: flex;
     align-items: center;
-    margin-right: 32px;
+    margin-right: 28px;
     justify-content: flex-end;
     a {
       color: #000;

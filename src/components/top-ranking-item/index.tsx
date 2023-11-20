@@ -24,7 +24,7 @@ const TopRankingItem: FC<IProps> = (props) => {
             ranking
           </a>
         </div>
-        <div className="info">
+        <div className="info hover-decoration">
           <a href="/todo">{info?.name}</a>
           <div>
             <button className="btn play sprite_02"></button>
@@ -38,7 +38,7 @@ const TopRankingItem: FC<IProps> = (props) => {
             <div className="list-item" key={item.id}>
               <div className="rank">{index + 1}</div>
               <div className="info">
-                <span className="name text-nowrap">{item.name}</span>
+                <span className="name text-nowrap hover-decoration">{item.name}</span>
                 <div className="operate">
                   <button className="btn sprite_02 play"></button>
                   <button className="btn sprite_icon2 add"></button>
@@ -49,8 +49,8 @@ const TopRankingItem: FC<IProps> = (props) => {
           )
         })}
       </div>
-      <div className="footer">
-        <a href="/todo">查看全部</a>
+      <div className="footer hover-decoration">
+        <a href="/todo">查看全部＞</a>
       </div>
     </TopRankingWrapper>
   )

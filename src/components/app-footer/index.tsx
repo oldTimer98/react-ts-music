@@ -1,4 +1,4 @@
-import { AppFooterWrapper, FooterLeft, FooterRight } from '@/components/app-footer/style'
+import { AppFooterWrapper, FooterTop, FooterBottom } from '@/components/app-footer/style'
 import React, { Fragment, memo } from 'react'
 import type { FC, ReactNode } from 'react'
 
@@ -12,53 +12,7 @@ const AppFooter: FC<IProps> = () => {
   return (
     <AppFooterWrapper>
       <div className="wrap-v2 content">
-        <FooterLeft>
-          <div className="link">
-            {footerLinks.map((item) => {
-              return (
-                <Fragment key={item.title}>
-                  <a href={item.link} target="_blank" rel="noopener noreferrer">
-                    {item.title}
-                  </a>
-                  <span className="line">|</span>
-                </Fragment>
-              )
-            })}
-          </div>
-          <div className="copyright">
-            <span>网易公司版权所有©1997-2020</span>
-            <span>
-              杭州乐读科技有限公司运营：
-              <a
-                href="https://p1.music.126.net/Mos9LTpl6kYt6YTutA6gjg==/109951164248627501.png"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                浙网文[2018]3506-263号
-              </a>
-            </span>
-          </div>
-          <div className="report">
-            <span>违法和不良信息举报电话：0571-89853516</span>
-            <span>
-              举报邮箱：
-              <a href="mailto:ncm5990@163.com" target="_blank" rel="noopener noreferrer">
-                ncm5990@163.com
-              </a>
-            </span>
-          </div>
-          <div className="info">
-            <span>粤B2-20090191-18</span>
-            <a
-              href="http://www.beian.miit.gov.cn/publish/query/indexFirst.action"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              工业和信息化部备案管理系统网站
-            </a>
-          </div>
-        </FooterLeft>
-        <FooterRight>
+        <FooterTop>
           {footerImages.map((item: any) => {
             return (
               <li className="item" key={item.link}>
@@ -69,7 +23,86 @@ const AppFooter: FC<IProps> = () => {
               </li>
             )
           })}
-        </FooterRight>
+        </FooterTop>
+        <FooterBottom>
+          <div className="link">
+            {footerLinks.map((item, index) => {
+              return (
+                <Fragment key={item.title}>
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover-decoration"
+                  >
+                    {item.title}
+                  </a>
+                  {index < footerLinks.length - 1 && <span className="line">|</span>}
+                </Fragment>
+              )
+            })}
+          </div>
+          <div>
+            <a
+              href="/#"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover-decoration"
+              style={{
+                marginRight: '20px'
+              }}
+            >
+              廉正举报
+            </a>
+            <a
+              href="/#"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover-decoration"
+              style={{
+                marginRight: '20px'
+              }}
+            >
+              不良信息举报邮箱: 51jubao@service.netease.com
+            </a>
+            <a href="/#" target="_blank" rel="noopener noreferrer" className="hover-decoration">
+              客服热线：95163298
+            </a>
+          </div>
+          <div>
+            <span
+              style={{
+                marginRight: '20px'
+              }}
+            >
+              互联网宗教信息服务许可证：浙（2022）0000120 增值电信业务经营许可证：浙B2-20150198
+              粤B2-20090191-18
+            </span>
+            <a href="/#" target="_blank" rel="noopener noreferrer" className="hover-decoration">
+              工业和信息化部备案管理系统网站
+            </a>
+          </div>
+          <div>
+            <span
+              style={{
+                marginRight: '20px'
+              }}
+            >
+              网易公司版权所有©1997-2023
+            </span>
+            <span
+              style={{
+                marginRight: '20px'
+              }}
+            >
+              杭州乐读科技有限公司运营：浙网文[2021] 1186-054号{' '}
+            </span>
+            <a href="/#" target="_blank" rel="noopener noreferrer" className="hover-decoration">
+              <span className="police-logo"></span>
+              浙公网安备 33010902002564号
+            </a>
+          </div>
+        </FooterBottom>
       </div>
     </AppFooterWrapper>
   )

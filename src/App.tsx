@@ -4,6 +4,7 @@ import { Suspense } from 'react'
 import AppHeader from '@/components/app-header'
 import { ViewWrapper } from '@/style'
 import AppFooter from '@/components/app-footer'
+import { FloatButton } from 'antd'
 function App() {
   return (
     <ViewWrapper>
@@ -13,6 +14,7 @@ function App() {
         {useRoutes(routes)}
       </Suspense>
       <AppFooter />
+      <FloatButton.BackTop shape="square" />
     </ViewWrapper>
   )
 }

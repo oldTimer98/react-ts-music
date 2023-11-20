@@ -27,8 +27,8 @@ const AlbumCover: FC<IProps> = (props) => {
         </a>
       </div>
       <div className="album-info">
-        <div className="name text-nowrap">{info.name}</div>
-        <div className="artist">{info.artist.name}</div>
+        <div className="name text-nowrap hover-decoration">{info.name}</div>
+        <div className="artist hover-decoration">{info.artist.name}</div>
       </div>
     </AlbumCoverWrapper>
   )
