@@ -15,5 +15,5 @@ export function getCount(count: number) {
 
 // 获取当前音乐
 export function getPlayUrl(id: number) {
-  return `https://music.163.com/song/media/outer/url/v1?id=${id}&level=exhigh.mp3`
+  return `https://music.163.com/song/media/outer/url?id=${id}.mp3`
 }

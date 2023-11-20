@@ -1,4 +1,6 @@
 import { TopRankingWrapper } from '@/components/top-ranking-item/style'
+import { useAppDispatch } from '@/hooks'
+import { fetchSongDetailAction } from '@/store/modules/player'
 import { getSizeImage } from '@/utils'
 import React, { memo } from 'react'
 import type { FC, ReactNode } from 'react'
@@ -15,6 +17,12 @@ interface IProps {
 
 const TopRankingItem: FC<IProps> = (props) => {
   const { info } = props
+
+  // 播放
+  const dispatch = useAppDispatch()
+  const handlePlayMusicClick = (id: number) => {
+    dispatch(fetchSongDetailAction(id))
+  }
   return (
     <TopRankingWrapper>
       <div className="header">
@@ -40,7 +48,10 @@ const TopRankingItem: FC<IProps> = (props) => {
               <div className="info">
                 <span className="name text-nowrap hover-decoration">{item.name}</span>
                 <div className="operate">
-                  <button className="btn sprite_02 play"></button>
+                  <button
+                    className="btn sprite_02 play"
+                    onClick={() => handlePlayMusicClick(item.id)}
+                  ></button>
                   <button className="btn sprite_icon2 add"></button>
                   <button className="btn sprite_02 favor"></button>
                 </div>

@@ -8,6 +8,7 @@ import {
   PlayInfoWrapper
 } from '@/views/player/app-play-bar/style'
 import { Slider } from 'antd'
+import classNames from 'classnames'
 import React, { memo, useEffect, useRef, useState } from 'react'
 import type { FC, ReactNode } from 'react'
 
@@ -34,7 +35,7 @@ const AppPlayBar: FC<IProps> = () => {
   // 副作用
   useEffect(() => {
     if (!audioRef.current) return
-    audioRef.current.src = getPlayUrl(33894312)
+    audioRef.current.src = getPlayUrl(currentSong.id)
     audioRef.current
       .play()
       .then(() => {
@@ -51,7 +52,17 @@ const AppPlayBar: FC<IProps> = () => {
     if (flag === 'play') {
       setIsPlaying(!isPlaying)
       // 猜测：playing的值已经改变了，但是由于react的机制需要在DOM
-      !isPlaying ? audioRef.current?.play() : audioRef.current?.pause()
+      isPlaying
+        ? audioRef.current?.pause()
+        : audioRef.current
+            ?.play()
+            .then(() => {
+              setIsPlaying(true)
+            })
+            .catch((err) => {
+              setIsPlaying(false)
+              console.log('歌曲播放失败：', err)
+            })
     } else if (flag === 'prev') {
       console.log(111)
     } else if (flag === 'next') {
@@ -66,14 +77,14 @@ const AppPlayBar: FC<IProps> = () => {
       <div className="end-r player-bar"></div>
       <div className="bg player-bar"></div>
       <div className="wrap  wrap-v2">
-        <ControlWrapper isPlaying={isPlaying}>
+        <ControlWrapper>
           {/* 播放器控制按钮 */}
           <button
             className="btn sprite_playbar prev"
             onClick={() => handlerPlayOn('prev')}
           ></button>
           <button
-            className="btn sprite_playbar play"
+            className={classNames('player-bar', isPlaying ? 'pause' : 'play')}
             onClick={() => handlerPlayOn('play')}
           ></button>
           <button

@@ -54,9 +54,7 @@ export const AppPlayBarWrapper = styled.div`
   }
 `
 
-export const ControlWrapper = styled.div<{
-  isPlaying: boolean
-}>`
+export const ControlWrapper = styled.div`
   display: flex;
   width: 137px;
   padding-top: 6px;
