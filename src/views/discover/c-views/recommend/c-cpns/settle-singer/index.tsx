@@ -20,17 +20,18 @@ const SettleSinger: FC<IProps> = () => {
     <SettleSingerWrapper>
       <RecommendHeader title="入驻歌手" moreText="查看全部" />
       <div className="singer-list">
-        {settleSingers.map((item) => {
-          return (
-            <a href="/singer" key={item.id} className="item">
-              <img src={getSizeImage(item.img1v1Url, 62)} alt="" />
-              <div className="info">
-                <div className="title">{item.alias.join('') || item.name}</div>
-                <div className="name">{item.name}</div>
-              </div>
-            </a>
-          )
-        })}
+        {settleSingers &&
+          settleSingers.map((item) => {
+            return (
+              <a href="/singer" key={item.id} className="item">
+                <img src={getSizeImage(item.img1v1Url, 62)} alt="" />
+                <div className="info">
+                  <div className="title">{item.alias.join('') || item.name}</div>
+                  <div className="name">{item.name}</div>
+                </div>
+              </a>
+            )
+          })}
       </div>
       <div className="apply-for">
         <a href="/abc">申请成为网易音乐人</a>
