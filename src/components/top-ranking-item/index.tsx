@@ -1,6 +1,10 @@
 import { TopRankingWrapper } from '@/components/top-ranking-item/style'
 import { useAppDispatch } from '@/hooks'
-import { fetchSongDetailAction } from '@/store/modules/player'
+import {
+  changePlayListAction,
+  fetchChangeSongAction,
+  fetchSongDetailAction
+} from '@/store/modules/player'
 import { getSizeImage } from '@/utils'
 import React, { memo } from 'react'
 import type { FC, ReactNode } from 'react'
@@ -23,6 +27,11 @@ const TopRankingItem: FC<IProps> = (props) => {
   const handlePlayMusicClick = (id: number) => {
     dispatch(fetchSongDetailAction(id))
   }
+  // 播放全部
+  const handlePlayList = () => {
+    dispatch(changePlayListAction(info.tracks))
+    dispatch(fetchChangeSongAction(true))
+  }
   return (
     <TopRankingWrapper>
       <div className="header">
@@ -35,7 +44,7 @@ const TopRankingItem: FC<IProps> = (props) => {
         <div className="info hover-decoration">
           <a href="/todo">{info?.name}</a>
           <div>
-            <button className="btn play sprite_02"></button>
+            <button className="btn play sprite_02" onClick={handlePlayList}></button>
             <button className="btn favor sprite_02"></button>
           </div>
         </div>

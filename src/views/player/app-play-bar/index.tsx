@@ -13,6 +13,7 @@ import {
   OperatorsWrapper,
   PlayInfoWrapper
 } from '@/views/player/app-play-bar/style'
+import AppPlayPanel from '@/views/player/app-play-panel'
 import { Slider, message } from 'antd'
 import classNames from 'classnames'
 import React, { memo, useCallback, useEffect, useRef, useState } from 'react'
@@ -29,14 +30,16 @@ const AppPlayBar: FC<IProps> = () => {
   const [currentTime, setCurrentTime] = useState(0)
   const [isChanging, setIsChanging] = useState(false)
   const [isShowLyrics, setIsShowLyrics] = useState(true)
+  const [showPanel, setShowPanel] = useState(false)
   // 获取歌曲数据
-  const { currentSong, playMode, currentLyrics, lyricIndex, showBottom } = useAppSelector(
+  const { currentSong, playMode, currentLyrics, lyricIndex, showBottom, playList } = useAppSelector(
     (state) => ({
       currentSong: state.player.currentSong,
       playMode: state.player.playMode,
       currentLyrics: state.player.currentLyrics,
       lyricIndex: state.player.lyricIndex,
-      showBottom: state.player.showBottom
+      showBottom: state.player.showBottom,
+      playList: state.player.playList
     }),
     useAppShallowEqual
   )
@@ -99,7 +102,6 @@ const AppPlayBar: FC<IProps> = () => {
 
     if (!isShowLyrics) {
       messageApi.destroy('lyric')
-      return
     }
     // 显示歌词 -- 计算歌词进度
     let index = currentLyrics.length - 1
@@ -113,7 +115,8 @@ const AppPlayBar: FC<IProps> = () => {
     if (lyricIndex === index || index === -1) return
     dispatch(changeCurrentLyricIndexAction(index))
     // 展示歌词
-    currentLyrics[index]?.text &&
+    isShowLyrics &&
+      currentLyrics[index]?.text &&
       messageApi.open({
         content: currentLyrics[index]?.text,
         key: 'lyric',
@@ -166,6 +169,11 @@ const AppPlayBar: FC<IProps> = () => {
   // 显示bottom
   const handleShowBottom = () => {
     dispatch(changeShowBottomAction(!showBottom))
+  }
+  // 显示panel
+  const handleShowPanel = () => {
+    setShowPanel(!showPanel)
+    setIsShowLyrics(showPanel)
   }
   return (
     <>
@@ -236,7 +244,9 @@ const AppPlayBar: FC<IProps> = () => {
                 <div className="right sprite_playbar">
                   <button className="sprite_playbar btn volume"></button>
                   <button className="sprite_playbar btn loop" onClick={handlePlayMode}></button>
-                  <button className="sprite_playbar btn playlist"></button>
+                  <button className="sprite_playbar btn playlist" onClick={handleShowPanel}>
+                    {playList.length}
+                  </button>
                 </div>
               </OperatorsWrapper>
               {/* 播放器 */}
@@ -249,6 +259,7 @@ const AppPlayBar: FC<IProps> = () => {
             </div>
           </>
         )}
+        {showPanel && <AppPlayPanel />}
       </AppPlayBarWrapper>
     </>
   )
