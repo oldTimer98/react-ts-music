@@ -88,13 +88,16 @@ body {
   background: url('../img/sprite_cover.png') no-repeat -145px -57px;
 }
 
-.ant-message .ant-message-notice-content {
+.ant-message {
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
+  top: auto !important;
   bottom: 60px;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #fff;
+  .ant-message-notice-content {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    color: #fff !important;
+  }
 }
 
 span:hover.link {

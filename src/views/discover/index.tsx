@@ -12,7 +12,7 @@ const Discover: FC<IProps> = () => {
   return (
     <DiscoverWrapper>
       <div className="discover-header">
-        <TopMenuWrapper className="wrap-v1">
+        <TopMenuWrapper className="wrap-v1 bg-[#c20c0c]">
           {discoverMenus.map((item) => {
             return (
               <div className="item" key={item.title}>

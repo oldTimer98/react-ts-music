@@ -17,3 +17,13 @@ export function getCount(count: number) {
 export function getPlayUrl(id: number) {
   return `https://music.163.com/song/media/outer/url?id=${id}.mp3`
 }
+
+// 处理时间函数
+
+export function formatTimeToMinute(params: number) {
+  const second = Math.floor(params / 1000) % 60
+  const minute = Math.floor(params / 1000 / 60)
+  const formatSecond = String(second).padStart(2, '0')
+  const formatMinute = String(minute).padStart(2, '0')
+  return `${formatMinute}:${formatSecond}`
+}

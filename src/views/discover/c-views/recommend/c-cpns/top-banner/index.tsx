@@ -36,7 +36,7 @@ const TopBanner: FC<IProps> = () => {
 
   // 获取背景
   const bgImage =
-    banners[currentIndex] && banners[currentIndex].imageUrl + '?imageView&blur=40x20&quot'
+    banners?.[currentIndex] && banners?.[currentIndex].imageUrl + '?imageView&blur=40x20&quot'
 
   // 处理点击dot事件
   const handleDotClick = (index: number) => {
@@ -51,24 +51,26 @@ const TopBanner: FC<IProps> = () => {
       <div className="banner wrap-v2">
         <BannerLeft>
           <Carousel autoplay effect="fade" beforeChange={handleChange} ref={bannerRef} dots={false}>
-            {banners.map((item) => {
-              return (
-                <div className="item" key={item.imageUrl}>
-                  <img src={item.imageUrl} alt="" />
-                </div>
-              )
-            })}
+            {banners &&
+              banners.map((item) => {
+                return (
+                  <div className="item" key={item.imageUrl}>
+                    <img src={item.imageUrl} alt="" />
+                  </div>
+                )
+              })}
           </Carousel>
           <div className="carousel-indicators">
-            {banners.map((item, index) => {
-              return (
-                <span
-                  className={classnames('dot', { active: index === currentIndex })}
-                  key={item.imageUrl}
-                  onClick={() => handleDotClick(index)}
-                ></span>
-              )
-            })}
+            {banners &&
+              banners.map((item, index) => {
+                return (
+                  <span
+                    className={classnames('dot', { active: index === currentIndex })}
+                    key={item.imageUrl}
+                    onClick={() => handleDotClick(index)}
+                  ></span>
+                )
+              })}
           </div>
         </BannerLeft>
         <BannerRight></BannerRight>

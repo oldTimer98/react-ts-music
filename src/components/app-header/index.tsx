@@ -31,7 +31,7 @@ const AppHeader: FC<IProps> = () => {
   }
   return (
     <ViewWrapper>
-      <div className="flex justify-between wrap-v1">
+      <div className="flex justify-between wrap-v1 bg-[#242424]">
         <HeaderLeft>
           <div className="logo">
             <a href="/#">
@@ -62,7 +62,7 @@ const AppHeader: FC<IProps> = () => {
           <span className="login hover:cursor-pointer">登录</span>
         </HeaderRight>
       </div>
-      <div className="h-[5px] bg-[#c20c0c]"></div>
+      <div className="h-[5px] bg-[#c20c0c] w-full"></div>
     </ViewWrapper>
   )
 }
